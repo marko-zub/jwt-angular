@@ -1,0 +1,27 @@
+{
+  "name": "jwt-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marko-zub/jwt-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marko-zub/jwt-angular/issues"
+  },
+  "homepage": "https://github.com/marko-zub/jwt-angular#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "faker": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
