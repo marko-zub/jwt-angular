@@ -5,3 +5,10 @@ coverage/
 .idea/
 .tmp/
 dist/
+public/node_modules/
+public/bower_components/
+public/coverage/
+public/.sass-cache/
+public/.idea/
+public/.tmp/
+public/dist/
