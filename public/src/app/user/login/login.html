@@ -1,0 +1,9 @@
+<form id="login" class="form small-form" novalidate>
+  <div class="form-group">
+    <input type="text" placeholder="Username" class="form-control" ng-model="vm.username" required>
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" class="form-control" ng-model="vm.password" required>
+  </div>
+  <button class="btn btn-primary btn-block" type="submit" ng-click="vm.login(vm.username, vm.password)">Login</button>
+</form>
