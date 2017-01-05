@@ -1,7 +1,10 @@
 var express = require('express'),
+  cors = require('cors'),
   faker = require('faker');
 
 var app = express();
+
+app.use(cors());
 
 app.get('/users/random', function(req, res) {
   var user = {

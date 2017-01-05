@@ -5,6 +5,9 @@
   angular
     .module('public')
     .constant('malarkey', malarkey)
+    .constant('CONFIG', {
+      baseUrl: 'http://localhost:9000'
+    })
     .constant('moment', moment);
 
 })();

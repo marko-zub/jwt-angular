@@ -12,3 +12,10 @@ public/.sass-cache/
 public/.idea/
 public/.tmp/
 public/dist/
+server/node_modules/
+server/bower_components/
+server/coverage/
+server/.sass-cache/
+server/.idea/
+server/.tmp/
+server/dist/

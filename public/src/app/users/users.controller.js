@@ -11,7 +11,8 @@
       url: '/', //'/users',
       templateUrl: 'app/users/users.html',
       controller: 'UsersController',
-      controllerAs: 'users',
+      controllerAs: 'vm',
+      bindToController: true
     });
   }
 
@@ -19,7 +20,18 @@
   function UsersController(usersApi, $q, toastr) {
     var vm = this;
 
-    vm.users = [];
+    vm.getRandomUserCall = getRandomUserCall;
+    vm.randomUser = [];
 
+    function getRandomUserCall() {
+      usersApi.getRandomUser().then(function(resp) {
+        vm.randomUser = resp.data;
+      }, function(resp) {
+        toastr.error(resp.status + ': ' + resp.statusText);
+      });
+
+      return vm.randomUser;
+    }
+    getRandomUserCall();
   }
 })();

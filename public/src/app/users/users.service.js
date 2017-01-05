@@ -2,21 +2,18 @@
   'use strict';
 
   angular
-      .module('public')
-      .service('usersApi', usersApi);
+    .module('public')
+    .service('usersApi', usersApi);
 
   /** @ngInject */
-  function usersApi($http) {
+  function usersApi($http, CONFIG) {
 
-    var baseUrl = '';
-    this.getUsers = getUsers;
-    this.getProduct = getProduct;
+    this.getRandomUser = getRandomUser;
 
-    function getUsers() {
-      var url = baseUrl + '/app/data/users.json';
+    function getRandomUser() {
+      var url = CONFIG.baseUrl + '/users/random';
       return $http.get(url);
     }
-
   }
 
 })();
