@@ -17,7 +17,7 @@
   }
 
   /** @ngInject */
-  function LoginController(loginService, $q, toastr) {
+  function LoginController(loginService, $q) {
     var vm = this;
 
     vm.login = login;
@@ -27,8 +27,6 @@
 
       loginService.loginUser(username, password).then(function(data) {
 
-      }, function(resp) {
-        toastr.error(resp.status + ': ' + resp.statusText);
       });
 
     }

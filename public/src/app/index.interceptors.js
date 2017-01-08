@@ -3,13 +3,11 @@
 
   angular
     .module('public')
-    .config(appInterceptorConfig);
+    .config(['$httpProvider', function($httpProvider) {
+      $httpProvider.interceptors.push(appInterceptor);
+    }]);
 
-  function appInterceptorConfig($httpProvider) {
-    $httpProvider.interceptors.push(appInterceptor);
-  }
-
-  function appInterceptor($log) {
+  function appInterceptor($injector, $log) {
     return {
       request: function(config) {
         $log.log(config);
@@ -18,7 +16,8 @@
       responseError: function(rejection) {
         $log.log('Rejection: ', rejection);
         if (rejection.status === -1) {
-          $log.log('Server error');
+          var MsgService = $injector.get('MsgService');
+          MsgService.error('Server error');
         }
         return rejection;
       }
