@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/marko-zub/jwt-angular#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
-    "faker": "^3.1.0"
+    "faker": "^3.1.0",
+    "jsonwebtoken": "^7.2.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

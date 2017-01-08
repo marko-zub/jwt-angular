@@ -1,5 +1,7 @@
 var express = require('express'),
   cors = require('cors'),
+  bodyParser = require('body-parser'),
+  jwt = require('jsonwebtoken'),
   faker = require('faker');
 
 var app = express();
