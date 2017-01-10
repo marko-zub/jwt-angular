@@ -17,7 +17,7 @@
   }
 
   /** @ngInject */
-  function LoginController(loginService, $q) {
+  function LoginController(loginService, $q, Auth) {
     var vm = this;
 
     vm.login = login;
@@ -26,7 +26,7 @@
       if (!username && !password) return;
 
       loginService.loginUser(username, password).then(function(data) {
-
+        Auth.setToken(data.token);
       });
 
     }

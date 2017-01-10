@@ -6,7 +6,13 @@ var express = require('express'),
 
 var app = express();
 
+// Config
+var config = require('./config');
+
+app.set('superSecret', config.secret);
+
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/users/random', function(req, res) {
   var user = {
@@ -18,6 +24,27 @@ app.get('/users/random', function(req, res) {
   }
   res.json(user);
 });
+
+var user = {
+  username: 'test',
+  password: 'test'
+}
+
+app.post('/user/login', authenticateUser, function(req, res) {
+  console.log(req, res);
+  res.send('User loggedin');
+});
+
+function authenticateUser(req, res, next) {
+  var body = req.body;
+  if (!body.username || !body.password) {
+    res.status(400).end('Please provide login details');
+  }
+  if (body.username !== user.username || body.username !== user.password) {
+    res.status(401).end('Wrong details');
+  }
+  next();
+}
 
 app.listen(9000, function() {
   console.log('app run');
