@@ -27,8 +27,38 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
   }
 }
 
+html {
+    height: 100%;
+}
+
+.main-content {
+  overflow: hidden;
+}
+
+.full-height {
+  height: 100%;
+  width: 100%;
+  display: table;
+  .main-content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 body {
+  min-height: 100%;
   background-color: #fafafa;
+  &.full-height {
+    @extend .full-height;
+  }
+}
+
+.form-control {
+  @include box-shadow(none);
+  &:hover,
+  &:focus {
+    @include box-shadow(none);
+  }
 }
 
 /**

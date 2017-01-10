@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-      .module('public')
+      .module('jwtNg')
       .service('webDevTec', webDevTec);
 
   /** @ngInject */

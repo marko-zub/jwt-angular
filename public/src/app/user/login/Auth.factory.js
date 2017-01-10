@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('public')
+    .module('jwtNg')
     .service('Auth', AuthFactory);
 
   /** @ngInject */
@@ -15,7 +15,7 @@
       if (token !== null) {
         localStore.setItem(localStoreKey, token);
       } else if (token === null) {
-        localStore.removItem(localStoreKey);
+        localStore.removeItem(localStoreKey);
       }
     }
 

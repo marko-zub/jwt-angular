@@ -1,8 +1,8 @@
 <!doctype html>
-<html ng-app="public">
+<html ng-app="jwtNg">
   <head>
     <meta charset="utf-8">
-    <title>public</title>
+    <title>jwtNg</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,12 +19,12 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body class="{{bodyClass}}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div ui-view class="main-content"></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

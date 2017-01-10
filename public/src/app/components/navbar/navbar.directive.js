@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('public')
+    .module('jwtNg')
     .directive('acmeNavbar', acmeNavbar);
 
   /** @ngInject */

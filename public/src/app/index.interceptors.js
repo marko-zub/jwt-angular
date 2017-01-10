@@ -2,10 +2,10 @@
   'use strict';
 
   angular
-    .module('public')
-    .config(['$httpProvider', function($httpProvider) {
+    .module('jwtNg')
+    .config(function($httpProvider) {
       $httpProvider.interceptors.push(appInterceptor);
-    }]);
+    });
 
   function appInterceptor($injector, $log) {
     return {
@@ -14,12 +14,11 @@
         return config;
       },
       responseError: function(rejection) {
+        var MsgService = $injector.get('MsgService');
         $log.log('Rejection: ', rejection);
         if (rejection.status === -1) {
-          var MsgService = $injector.get('MsgService');
           MsgService.error('Server error');
-        } else if(rejection.status === 401 || rejection.status === 400) {
-          var MsgService = $injector.get('MsgService');
+        } else if (rejection.status === 401 || rejection.status === 400) {
           MsgService.error(rejection.data);
         }
         return rejection;

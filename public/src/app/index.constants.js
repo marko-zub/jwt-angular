@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('public')
+    .module('jwtNg')
     .constant('malarkey', malarkey)
     .constant('CONFIG', {
       baseUrl: 'http://localhost:9000'

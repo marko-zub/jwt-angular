@@ -9,7 +9,7 @@ var app = express();
 // Config
 var config = require('./config');
 
-app.set('superSecret', config.secret);
+// app.set('superSecret', config.secret);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -25,14 +25,20 @@ app.get('/users/random', function(req, res) {
   res.json(user);
 });
 
+// Hardocded user :)
 var user = {
   username: 'test',
   password: 'test'
 }
 
 app.post('/user/login', authenticateUser, function(req, res) {
-  console.log(req, res);
-  res.send('User loggedin');
+  // If user logged in send token
+  var token = jwt.sign({
+    token: user.username
+  }, config.secret);
+  res.send({
+    token: token
+  });
 });
 
 function authenticateUser(req, res, next) {

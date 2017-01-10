@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('public')
+    .module('jwtNg')
     .config(loginConfig)
     .controller('LoginController', LoginController);
 
@@ -12,7 +12,10 @@
       templateUrl: 'app/user/login/login.html',
       controller: 'LoginController',
       controllerAs: 'vm',
-      bindToController: true
+      bindToController: true,
+      data: {
+        bodyClass: 'full-height'
+      }
     });
   }
 
@@ -21,14 +24,22 @@
     var vm = this;
 
     vm.login = login;
+    vm.logout = logout;
 
     function login(username, password) {
       if (!username && !password) return;
 
-      loginService.loginUser(username, password).then(function(data) {
-        Auth.setToken(data.token);
+      loginService.loginUser(username, password).then(function(resp) {
+        if (resp.data.token) {
+          Auth.setToken(resp.data.token);
+        }
       });
 
     }
+
+    function logout() {
+      Auth.setToken(null);
+    }
+
   }
 })();

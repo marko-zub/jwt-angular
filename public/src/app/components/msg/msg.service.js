@@ -2,7 +2,7 @@
     "use strict";
 
     angular
-        .module("public")
+        .module("jwtNg")
         .factory("MsgService", MsgService);
 
     function MsgService($injector) {
