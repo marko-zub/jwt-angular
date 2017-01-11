@@ -30,11 +30,10 @@
       if (!username && !password) return;
 
       loginService.loginUser(username, password).then(function(resp) {
-        if (resp.data.token) {
+        if (resp.data.token && !Auth.isAuthorized()) {
           Auth.setToken(resp.data.token);
         }
       });
-
     }
 
     function logout() {
