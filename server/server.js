@@ -27,14 +27,14 @@ app.get('/users/random', function(req, res) {
 
 // Hardocded user :)
 var user = {
-  username: 'test',
+  email: 'test@test.com',
   password: 'test'
 }
 
 app.post('/user/login', authenticateUser, function(req, res) {
   // If user logged in send token
   var token = jwt.sign({
-    token: user.username
+    token: user.email
   }, config.secret);
   res.send({
     token: token
@@ -43,10 +43,10 @@ app.post('/user/login', authenticateUser, function(req, res) {
 
 function authenticateUser(req, res, next) {
   var body = req.body;
-  if (!body.username || !body.password) {
+  if (!body.email || !body.password) {
     res.status(400).end('Please provide login details');
   }
-  if (body.username !== user.username || body.username !== user.password) {
+  if (body.email !== user.email || body.email !== user.password) {
     res.status(401).end('Wrong details');
   }
   next();

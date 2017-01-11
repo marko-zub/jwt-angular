@@ -26,10 +26,10 @@
     vm.login = login;
     vm.logout = logout;
 
-    function login(username, password) {
-      if (!username && !password) return;
+    function login(email, password) {
+      if (!email && !password) return;
 
-      loginService.loginUser(username, password).then(function(resp) {
+      loginService.loginUser(email, password).then(function(resp) {
         if (resp.data.token && !Auth.isAuthorized()) {
           Auth.setToken(resp.data.token);
         }
